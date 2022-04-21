@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "307722772777",
+    "project_id": "mynotes-firebasetest-project",
+    "storage_bucket": "mynotes-firebasetest-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307722772777:android:bbfa39039a9a01cad4d738",
+        "android_client_info": {
+          "package_name": "com.example.firebasetest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "307722772777-4ccdc04iadbjh604fosle2191b5meoca.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP4yCquBm3IIpdnpscjBVQGqBbGQpKv3o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "307722772777-4ccdc04iadbjh604fosle2191b5meoca.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
