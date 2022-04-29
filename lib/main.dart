@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebasetest/constants/routes.dart';
 import 'package:firebasetest/views/Login_view.dart';
 import 'package:firebasetest/views/Verify_email.dart';
 import 'package:firebasetest/views/register_view.dart';
@@ -10,11 +11,12 @@ import 'firebase_options.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: const HomePage(),
     routes: {
-      '/Login/': (context) => const LoginView(),
-      '/Register/': (context) => const RegisterView(),
-      '/Notes/': (context) => const Notesview(),
+      loginRoute: (context) => const LoginView(),
+      registerRoute: (context) => const RegisterView(),
+      notesRoute: (context) => const Notesview(),
     },
   ));
 }
@@ -72,7 +74,7 @@ class _NotesviewState extends State<Notesview> {
                 if (shouldLogout) {
                   await FirebaseAuth.instance.signOut();
                   Navigator.of(context)
-                      .pushNamedAndRemoveUntil('/Login/', (_) => false);
+                      .pushNamedAndRemoveUntil(loginRoute, (_) => false);
                 }
             }
           }, itemBuilder: (context) {
