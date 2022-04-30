@@ -1,9 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasetest/constants/routes.dart';
-import 'package:firebasetest/views/Verify_email.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer' as devtools show log;
-
 import '../utilities/show_error_dialog.dart';
 
 class LoginView extends StatefulWidget {
