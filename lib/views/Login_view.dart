@@ -58,23 +58,22 @@ class _LoginViewState extends State<LoginView> {
                 final password = _password.text;
 
                 try {
-                  final usercredential = await FirebaseAuth.instance
-                      .signInWithEmailAndPassword(
-                          email: email, password: password);
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil(notesRoute, (route) => false);
-                  // final userVerified =
-                  //     await FirebaseAuth.instance.currentUser?.emailVerified;
-                  // if (userVerified == true) {
-                  //   Navigator.of(context).pushNamedAndRemoveUntil(
-                  //     notesRoute,
-                  //     (route) => false,
-                  //   );
-                  // } else if (userVerified == false) {
-                  //   Navigator.of(context).push(MaterialPageRoute(
-                  //       builder: (context) => const VerifyEmailView()));
-                  // }
-                  devtools.log(usercredential.toString());
+                  await FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: email, password: password);
+                  final user = FirebaseAuth.instance.currentUser;
+                  if (user?.emailVerified ?? false) {
+                    //Email is verified//
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                      notesRoute,
+                      (route) => false,
+                    );
+                  } else {
+                    //Email is Not verified//
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                      verifyEmailRoute,
+                      (route) => false,
+                    );
+                  }
                 } on FirebaseAuthException catch (e) {
                   if (e.code == 'user-not-found') {
                     await showErrorDialog(
