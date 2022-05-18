@@ -2,6 +2,7 @@ import 'package:firebasetest/services/auth/auth_user.dart';
 import 'package:flutter/cupertino.dart';
 
 abstract class AuthProvider {
+  Future<void> initialize();
   AuthUser? get currentUser;
   Future<AuthUser> logIn({required String email, required String password});
   Future<AuthUser> createUser(
